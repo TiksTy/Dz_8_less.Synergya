@@ -1,0 +1,21 @@
+m = int(input("Введите грузоподъёмность лодки\n:"))
+n = int(input("Введите количество рыбаков\n:"))
+mk = 0
+Ai = []
+for i in range(n):
+    Ai.append(int(input("Введите вес каждого рыбака\n:")))
+while Ai:
+    sum = Ai[0]
+    Ai.pop(0)
+    c = 0
+    e = -1
+    for i in range(len(Ai)):
+      if c < sum + Ai[i] <= m: # if sum + Ai[i] > c and sum + Ai[i] <= m:
+        c = sum + Ai[i]
+        e = i
+    mk += 1
+    if e == -1:
+        continue
+    else:
+        Ai.pop(e)
+print(mk)
